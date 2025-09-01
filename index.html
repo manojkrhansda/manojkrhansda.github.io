@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Testing Website</title>
+    <title>Manoj Kumar Hansda | Creative Portfolio</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts: Inter -->
@@ -25,23 +25,31 @@
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-200 transition-colors duration-300">
 
     <!-- Header and Navigation -->
-    <header class="bg-white shadow-sm sticky top-0 z-50">
+    <header class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-sm sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-2xl font-bold text-gray-900">
-                <a href="#">TestSite</a>
+            <div class="text-2xl font-bold text-gray-900 dark:text-white">
+                <a href="#">MKH</a>
             </div>
-            <div class="hidden md:flex items-center space-x-6">
-                <a href="#" class="text-gray-600 hover:text-indigo-600">Home</a>
-                <a href="#" class="text-gray-600 hover:text-indigo-600">About</a>
-                <a href="#" class="text-gray-600 hover:text-indigo-600">Services</a>
-                <a href="#" class="text-gray-600 hover:text-indigo-600">Contact</a>
+            <div class="flex items-center">
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="#" class="text-gray-600 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400">Home</a>
+                    <a href="#" class="text-gray-600 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400">About</a>
+                    <a href="#" class="text-gray-600 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400">Creations</a>
+                    <a href="#" class="text-gray-600 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400">Contact</a>
+                </div>
+                 <!-- Dark Mode Toggle -->
+                <button id="dark-mode-toggle" class="ml-6 p-2 rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none">
+                    <svg id="sun-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                    <svg id="moon-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                </button>
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden flex items-center ml-4 text-gray-600 dark:text-gray-300">
+                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
             </div>
-            <button class="md:hidden flex items-center">
-                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-            </button>
         </nav>
     </header>
 
@@ -49,12 +57,13 @@
     <main class="container mx-auto px-6 py-12">
         <!-- Hero Section -->
         <section class="text-center">
-            <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 mb-4">Welcome to Our Test Website</h1>
-            <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-                This is a clean and simple webpage built with Tailwind CSS. It's perfect for testing, demos, and as a starting point for new projects.
+            <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 dark:text-white mb-2">Manoj Kumar Hansda</h1>
+            <p class="text-2xl text-indigo-500 font-semibold mb-6">Creative Person</p>
+            <p class="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto mb-8">
+                Welcome to my creative portfolio. I bring ideas to life through visual design and imaginative concepts.
             </p>
             <button id="cta-button" class="bg-indigo-600 text-white font-semibold py-3 px-8 rounded-lg shadow-lg btn-hover">
-                Click Me!
+                Explore My Creations
             </button>
         </section>
 
@@ -62,44 +71,71 @@
         <section class="mt-20">
             <div class="grid md:grid-cols-3 gap-10">
                 <!-- Feature Card 1 -->
-                <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700">
                     <div class="flex items-center justify-center h-12 w-12 rounded-full bg-indigo-100 text-indigo-600 mb-4">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Interactive Elements</h3>
-                    <p class="text-gray-600">
-                        Includes basic JavaScript for interactive components like buttons and message boxes.
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Visual Storytelling</h3>
+                    <p class="text-gray-600 dark:text-gray-400">
+                        Creating compelling narratives and visuals that captivate and inspire.
                     </p>
                 </div>
                 <!-- Feature Card 2 -->
-                <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700">
                      <div class="flex items-center justify-center h-12 w-12 rounded-full bg-indigo-100 text-indigo-600 mb-4">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Responsive Design</h3>
-                    <p class="text-gray-600">
-                        Built with a mobile-first approach to ensure it looks great on all screen sizes.
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Innovative Design</h3>
+                    <p class="text-gray-600 dark:text-gray-400">
+                        Designing unique and memorable visuals for digital and print media.
                     </p>
                 </div>
                 <!-- Feature Card 3 -->
-                <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700">
                      <div class="flex items-center justify-center h-12 w-12 rounded-full bg-indigo-100 text-indigo-600 mb-4">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Clean Code</h3>
-                    <p class="text-gray-600">
-                        Everything is in a single, well-structured HTML file for easy editing and understanding.
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Attention to Detail</h3>
+                    <p class="text-gray-600 dark:text-gray-400">
+                        Meticulously crafting every element to ensure a polished and professional final product.
                     </p>
                 </div>
             </div>
         </section>
 
+        <!-- Contact Section -->
+        <section class="mt-20 bg-white dark:bg-gray-800 p-8 md:p-12 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700">
+            <div class="max-w-xl mx-auto text-center">
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Get in Touch</h2>
+                <p class="text-gray-600 dark:text-gray-400 mb-8">Have a question or want to collaborate? Send a message!</p>
+            </div>
+            <form id="contact-form" class="max-w-xl mx-auto">
+                <div class="mb-4">
+                    <label for="name" class="block text-gray-700 dark:text-gray-300 font-medium mb-2">Name</label>
+                    <input type="text" id="name" name="name" class="w-full px-4 py-2 bg-gray-100 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-900 dark:text-gray-100" required>
+                </div>
+                <div class="mb-4">
+                    <label for="email" class="block text-gray-700 dark:text-gray-300 font-medium mb-2">Email</label>
+                    <input type="email" id="email" name="email" class="w-full px-4 py-2 bg-gray-100 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-900 dark:text-gray-100" required>
+                </div>
+                <div class="mb-6">
+                    <label for="message" class="block text-gray-700 dark:text-gray-300 font-medium mb-2">Message</label>
+                    <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 bg-gray-100 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-900 dark:text-gray-100" required></textarea>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="bg-indigo-600 text-white font-semibold py-3 px-8 rounded-lg shadow-lg btn-hover w-full md:w-auto">
+                        Send Message
+                    </button>
+                </div>
+            </form>
+        </section>
+
         <!-- Custom Message Box -->
-        <div id="message-box" class="hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center p-4">
-            <div class="bg-white rounded-lg p-8 shadow-2xl max-w-sm w-full text-center">
-                <h3 class="text-2xl font-bold mb-4">Hello!</h3>
-                <p class="text-gray-700 mb-6">You clicked the button. This is a custom message box!</p>
-                <button id="close-button" class="bg-gray-200 text-gray-800 font-semibold py-2 px-6 rounded-lg btn-hover">
+        <div id="message-box" class="hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+            <div class="bg-white dark:bg-gray-700 rounded-lg p-8 shadow-2xl max-w-sm w-full text-center">
+                <h3 class="text-2xl font-bold mb-4 dark:text-white" id="message-box-title">Hello!</h3>
+                <p class="text-gray-700 dark:text-gray-300 mb-6" id="message-box-text">You clicked the button. This is a custom message box!</p>
+                <button id="close-button" class="bg-gray-200 text-gray-800 dark:bg-gray-600 dark:text-gray-100 font-semibold py-2 px-6 rounded-lg btn-hover">
                     Close
                 </button>
             </div>
@@ -108,9 +144,10 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-white mt-16 border-t">
-        <div class="container mx-auto px-6 py-8 text-center text-gray-500">
-            <p>&copy; 2025 TestSite. All Rights Reserved.</p>
+    <footer class="bg-white dark:bg-gray-800 mt-16 border-t dark:border-gray-700">
+        <div class="container mx-auto px-6 py-8 text-center text-gray-500 dark:text-gray-400">
+            <p class="font-semibold">Designed & Created by Manoj Kumar Hansda.</p>
+            <p class="text-sm mt-1">&copy; 2025 All Rights Reserved.</p>
         </div>
     </footer>
 
@@ -119,9 +156,47 @@
         const ctaButton = document.getElementById('cta-button');
         const messageBox = document.getElementById('message-box');
         const closeButton = document.getElementById('close-button');
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        const sunIcon = document.getElementById('sun-icon');
+        const moonIcon = document.getElementById('moon-icon');
+        const contactForm = document.getElementById('contact-form');
+        const messageBoxTitle = document.getElementById('message-box-title');
+        const messageBoxText = document.getElementById('message-box-text');
+
+        // Function to set the theme
+        const setTheme = (isDark) => {
+            if (isDark) {
+                document.documentElement.classList.add('dark');
+                sunIcon.classList.add('hidden');
+                moonIcon.classList.remove('hidden');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+                sunIcon.classList.remove('hidden');
+                moonIcon.classList.add('hidden');
+                localStorage.setItem('theme', 'light');
+            }
+        };
+
+        // Event listener for the dark mode toggle
+        darkModeToggle.addEventListener('click', () => {
+            setTheme(!document.documentElement.classList.contains('dark'));
+        });
+
+        // Check for saved theme in localStorage or user's preference
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        if (savedTheme) {
+            setTheme(savedTheme === 'dark');
+        } else {
+            setTheme(prefersDark);
+        }
 
         // Show the message box when the CTA button is clicked
         ctaButton.addEventListener('click', () => {
+            messageBoxTitle.textContent = 'Creations';
+            messageBoxText.textContent = 'This section will showcase your creative work. It is currently under construction.';
             messageBox.classList.remove('hidden');
         });
 
@@ -136,6 +211,21 @@
                 messageBox.classList.add('hidden');
             }
         });
+
+        // Handle contact form submission
+        contactForm.addEventListener('submit', (event) => {
+            event.preventDefault(); // Prevent actual form submission
+            const name = document.getElementById('name').value;
+
+            // Customize and show the message box for form submission
+            messageBoxTitle.textContent = `Thank You, ${name}!`;
+            messageBoxText.textContent = 'Your message has been received. I will get back to you shortly.';
+            messageBox.classList.remove('hidden');
+
+            // Reset the form after showing the message
+            contactForm.reset();
+        });
     </script>
 </body>
 </html>
+
