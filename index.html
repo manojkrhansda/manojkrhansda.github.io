@@ -4,1079 +4,180 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Manoj's Code Vault</title>
+<title>Manoj File Library</title>
 
 <style>
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    background: #0b0f14;
-    color: #d8dee9;
-    font-family: Consolas, "Courier New", monospace;
-}
-
-/* =========================
-   TOP BAR
-========================= */
-
-.topbar {
-    min-height: 50px;
-    background: #10161d;
-    border-bottom: 1px solid #263340;
-    padding: 0 22px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.logo {
-    color: #00bfff;
-    font-weight: bold;
-    font-size: 17px;
-}
-
-.creator {
-    color: #73808c;
-    font-size: 12px;
-}
-
-/* =========================
-   MAIN
-========================= */
-
-.container {
-    width: 94%;
-    max-width: 1000px;
-    margin: 28px auto;
-}
-
-/* =========================
-   TERMINAL
-========================= */
-
-.terminal {
-    margin-bottom: 20px;
-}
-
-.user {
-    color: #00bfff;
-}
-
-.path {
-    color: #bd93f9;
-}
-
-.prompt {
-    color: #00ff9c;
-}
-
-.terminal h1 {
-    color: #f1f5f9;
-    font-size: 22px;
-    margin: 14px 0 5px;
-}
-
-.terminal p {
-    color: #667784;
-    font-size: 13px;
-    margin: 0;
-}
-
-/* =========================
-   SEARCH
-========================= */
-
-.search-box {
-    display: flex;
-    align-items: center;
-
-    background: #10161d;
-    border: 1px solid #263340;
-    border-radius: 4px;
-
-    padding: 10px 13px;
-    margin-bottom: 20px;
-}
-
-.search-box span {
-    color: #00ff9c;
-    margin-right: 8px;
-}
-
-#search {
-    width: 100%;
-    background: transparent;
-    border: 0;
-    outline: 0;
-
-    color: #d8dee9;
-    font-family: Consolas, monospace;
-    font-size: 14px;
-}
-
-#search::placeholder {
-    color: #52606d;
-}
-
-/* =========================
-   FILE ITEM
-========================= */
-
-.file {
-    background: #10161d;
-    border: 1px solid #263340;
-    border-radius: 4px;
-    margin-bottom: 9px;
-    overflow: hidden;
-}
-
-.file:hover {
-    border-color: #3a5367;
-}
-
-.file-header {
-    min-height: 47px;
-    background: #121a22;
-    padding: 8px 12px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    gap: 10px;
-}
-
-.file-name {
-    color: #00bfff;
-    font-size: 14px;
-    cursor: pointer;
-}
-
-.file-name:hover {
-    color: #8be9fd;
-}
-
-/* =========================
-   BUTTONS
-========================= */
-
-.actions {
-    display: flex;
-    gap: 6px;
-}
-
-button,
-.btn {
-    display: inline-block;
-
-    background: #18222d;
-    color: #c7d2da;
-
-    border: 1px solid #304252;
-    border-radius: 3px;
-
-    padding: 6px 10px;
-
-    font-family: Consolas, monospace;
-    font-size: 12px;
-
-    cursor: pointer;
-    text-decoration: none;
-}
-
-button:hover,
-.btn:hover {
-    background: #20303d;
-    border-color: #00a7d6;
-    color: #00d9ff;
-}
-
-.download {
-    color: #00ff9c;
-}
-
-/* =========================
-   CODE BOX
-========================= */
-
-/* minimized by default */
-
-.code-box {
-    display: none;
-
-    background: #080c10;
-    border-top: 1px solid #263340;
-}
-
-.code-path {
-    background: #0c1218;
-    color: #536574;
-
-    padding: 7px 12px;
-
-    border-bottom: 1px solid #1d2933;
-
-    font-size: 11px;
-}
-
-pre {
-    margin: 0;
-    padding: 18px;
-
-    overflow-x: auto;
-}
-
-code {
-    color: #d8dee9;
-
-    font-family: Consolas, "Courier New", monospace;
-    font-size: 13px;
-    line-height: 1.6;
-}
-
-/* =========================
-   SECTION
-========================= */
-
-.section {
-    margin-top: 45px;
-}
-
-.section-title {
-    color: #f1f5f9;
-    font-size: 20px;
-    margin: 12px 0 5px;
-}
-
-.section-description {
-    color: #667784;
-    font-size: 13px;
-    margin-bottom: 18px;
-}
-
-/* =========================
-   FILE TYPE
-========================= */
-
-.file-info {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.icon {
-    font-size: 18px;
-}
-
-.file-details small {
-    display: block;
-    color: #5e6e7b;
-    margin-top: 3px;
-}
-
-/* =========================
-   NO RESULT
-========================= */
-
-#noResult {
-    display: none;
-
-    color: #ff6b6b;
-
-    padding: 20px 5px;
-}
-
-/* =========================
-   FOOTER
-========================= */
-
-.footer {
-    margin-top: 45px;
-    padding: 18px 0;
-
-    border-top: 1px solid #1d2933;
-
-    color: #52606d;
-
-    font-size: 12px;
-    line-height: 1.8;
-}
-
-.online {
-    color: #00ff9c;
-}
-
-.footer strong {
-    color: #8be9fd;
-}
-
-/* =========================
-   MOBILE
-========================= */
-
-@media(max-width: 650px) {
-
-    .topbar {
-        padding: 12px 15px;
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 5px;
+    * {
+        box-sizing: border-box;
     }
 
-    .file-header {
-        flex-direction: column;
-        align-items: flex-start;
+    body {
+        margin: 0;
+        background: #050b12;
+        color: #d7e2ec;
+        font-family: Consolas, monospace;
     }
 
-    .actions {
-        width: 100%;
+    header {
+        background: #08131f;
+        border-bottom: 1px solid #183047;
+        padding: 18px 25px;
     }
 
-    .actions button,
-    .actions .btn {
+    .logo {
+        color: #00ff9d;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .sub {
+        color: #71869a;
+        font-size: 12px;
+        margin-top: 5px;
+    }
+
+    .terminal {
+        max-width: 900px;
+        margin: 30px auto;
+        padding: 0 15px;
+    }
+
+    .path {
+        color: #00ff9d;
+        margin-bottom: 15px;
+    }
+
+    .box {
+        background: #09131e;
+        border: 1px solid #1b3043;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+
+    .file {
+        display: flex;
+        align-items: center;
+        padding: 13px 15px;
+        border-bottom: 1px solid #152536;
+    }
+
+    .file:last-child {
+        border-bottom: none;
+    }
+
+    .file:hover {
+        background: #0d1d2b;
+    }
+
+    .icon {
+        width: 40px;
+        font-size: 20px;
+    }
+
+    .filename {
         flex: 1;
-        text-align: center;
+        font-size: 14px;
     }
-}
-</style>
 
+    .download {
+        color: #00ff9d;
+        border: 1px solid #00a866;
+        padding: 6px 12px;
+        border-radius: 3px;
+        text-decoration: none;
+        font-size: 12px;
+    }
+
+    .download:hover {
+        background: #00ff9d;
+        color: #04100b;
+    }
+
+    footer {
+        text-align: center;
+        color: #53687a;
+        font-size: 11px;
+        margin: 30px;
+    }
+</style>
 </head>
 
 <body>
 
-
-<!-- =========================
-     TOP BAR
-========================= -->
-
-<div class="topbar">
-
-    <div class="logo">
-        ◈ KALI // CODE VAULT
-    </div>
-
-    <div class="creator">
-        Created by Manoj Kumar Hansda
-    </div>
-
-</div>
-
-
-<div class="container">
-
-
-<!-- =========================
-     TERMINAL HEADER
-========================= -->
+<header>
+    <div class="logo">MANOJ://FILE_LIBRARY</div>
+    <div class="sub">Personal File Repository</div>
+</header>
 
 <div class="terminal">
 
-    <div>
-        <span class="user">┌──(manoj㉿kali)</span>
-        <span class="path">-[~/code-vault]</span>
+    <div class="path">
+        manoj@library:~/files$
     </div>
 
-    <div>
-        <span class="user">└─</span><span class="prompt">$</span>
-        ls -la
-    </div>
+    <div class="box">
 
-    <h1>Manoj's Code Library</h1>
-
-    <p>
-        Personal HTML Code Collection
-    </p>
-
-</div>
-
-
-<!-- =========================
-     SEARCH
-========================= -->
-
-<div class="search-box">
-
-    <span>$</span>
-
-    <input
-        type="text"
-        id="search"
-        placeholder="search code files..."
-        onkeyup="searchFiles()"
-    >
-
-</div>
-
-
-<!-- =====================================================
-     HTML FILE 1
-===================================================== -->
-
-<div class="file code-file">
-
-    <div class="file-header">
-
-        <span class="file-name"
-              data-filename="library.html"
-              onclick="toggleCode(this)">
-            ▶ library.html
-        </span>
-
-        <div class="actions">
-
-            <button onclick="toggleCode(this)">
-                View
-            </button>
-
-            <button onclick="copyCode(this)">
-                Copy
-            </button>
-
-            <button class="download"
-                    onclick="downloadCode(this)">
-                Download
-            </button>
-
+        <div class="file">
+            <div class="icon">📦</div>
+            <div class="filename">isis.zip</div>
+            <a class="download" href="isis.zip" download>DOWNLOAD</a>
         </div>
 
-    </div>
-
-
-    <div class="code-box">
-
-        <div class="code-path">
-            ~/code-vault/library.html
+        <div class="file">
+            <div class="icon">📦</div>
+            <div class="filename">dbase.zip</div>
+            <a class="download" href="dbase.zip" download>DOWNLOAD</a>
         </div>
 
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-
-&lt;head&gt;
-    &lt;title&gt;Library Website&lt;/title&gt;
-&lt;/head&gt;
-
-&lt;body&gt;
-
-    &lt;h1&gt;Welcome to My Library&lt;/h1&gt;
-
-    &lt;p&gt;This is my library website.&lt;/p&gt;
-
-&lt;/body&gt;
-
-&lt;/html&gt;</code></pre>
-
-    </div>
-
-</div>
-
-
-<!-- =====================================================
-     HTML FILE 2
-===================================================== -->
-
-<div class="file code-file">
-
-    <div class="file-header">
-
-        <span class="file-name"
-              data-filename="table.html"
-              onclick="toggleCode(this)">
-            ▶ table.html
-        </span>
-
-        <div class="actions">
-
-            <button onclick="toggleCode(this)">
-                View
-            </button>
-
-            <button onclick="copyCode(this)">
-                Copy
-            </button>
-
-            <button class="download"
-                    onclick="downloadCode(this)">
-                Download
-            </button>
-
+        <div class="file">
+            <div class="icon">🌐</div>
+            <div class="filename">index2.html</div>
+            <a class="download" href="index2.html" download>DOWNLOAD</a>
         </div>
 
-    </div>
-
-
-    <div class="code-box">
-
-        <div class="code-path">
-            ~/code-vault/table.html
+        <div class="file">
+            <div class="icon">🌐</div>
+            <div class="filename">new.html</div>
+            <a class="download" href="new.html" download>DOWNLOAD</a>
         </div>
 
-<pre><code>&lt;table border="1"&gt;
-
-    &lt;tr&gt;
-        &lt;th&gt;Name&lt;/th&gt;
-        &lt;th&gt;Roll&lt;/th&gt;
-    &lt;/tr&gt;
-
-    &lt;tr&gt;
-        &lt;td&gt;Manoj&lt;/td&gt;
-        &lt;td&gt;01&lt;/td&gt;
-    &lt;/tr&gt;
-
-&lt;/table&gt;</code></pre>
-
-    </div>
-
-</div>
-
-
-<!-- =====================================================
-     HTML FILE 3
-===================================================== -->
-
-<div class="file code-file">
-
-    <div class="file-header">
-
-        <span class="file-name"
-              data-filename="form.html"
-              onclick="toggleCode(this)">
-            ▶ form.html
-        </span>
-
-        <div class="actions">
-
-            <button onclick="toggleCode(this)">
-                View
-            </button>
-
-            <button onclick="copyCode(this)">
-                Copy
-            </button>
-
-            <button class="download"
-                    onclick="downloadCode(this)">
-                Download
-            </button>
-
+        <div class="file">
+            <div class="icon">⚙️</div>
+            <div class="filename">dimark.bat</div>
+            <a class="download" href="dimark.bat" download>DOWNLOAD</a>
         </div>
 
-    </div>
-
-
-    <div class="code-box">
-
-        <div class="code-path">
-            ~/code-vault/form.html
+        <div class="file">
+            <div class="icon">🌐</div>
+            <div class="filename">books.html</div>
+            <a class="download" href="books.html" download>DOWNLOAD</a>
         </div>
 
-<pre><code>&lt;form&gt;
-
-    Name:
-    &lt;input type="text"&gt;
-
-    &lt;br&gt;&lt;br&gt;
-
-    Email:
-    &lt;input type="email"&gt;
-
-    &lt;br&gt;&lt;br&gt;
-
-    &lt;input type="submit" value="Submit"&gt;
-
-&lt;/form&gt;</code></pre>
-
-    </div>
-
-</div>
-
-
-<div id="noResult">
-    [!] No matching code file found.
-</div>
-
-
-<!-- =====================================================
-     DOWNLOAD SECTION
-===================================================== -->
-
-<div class="section">
-
-    <div>
-        <span class="user">┌──(manoj㉿kali)</span>
-        <span class="path">-[~/downloads]</span>
-    </div>
-
-    <div>
-        <span class="user">└─</span><span class="prompt">$</span>
-        ls -la
-    </div>
-
-    <h2 class="section-title">
-        Files & Downloads
-    </h2>
-
-    <div class="section-description">
-        Images • PDF • Documents • ZIP
-    </div>
-
-
-    <!-- =========================
-         IMAGE
-    ========================== -->
-
-    <div class="file">
-
-        <div class="file-header">
-
-            <div class="file-info">
-
-                <span class="icon">🖼</span>
-
-                <div class="file-details">
-
-                    <span class="file-name">
-                        library.jpg
-                    </span>
-
-                    <small>Image File</small>
-
-                </div>
-
-            </div>
-
-
-            <div class="actions">
-
-                <a
-                    class="btn"
-                    href="files/library.jpg"
-                    target="_blank">
-                    View
-                </a>
-
-                <a
-                    class="btn download"
-                    href="files/library.jpg"
-                    download="library.jpg">
-                    Download
-                </a>
-
-            </div>
-
+        <div class="file">
+            <div class="icon">🖼️</div>
+            <div class="filename">library.jpg</div>
+            <a class="download" href="library.jpg" download>DOWNLOAD</a>
         </div>
 
-    </div>
-
-
-    <!-- =========================
-         PNG IMAGE
-    ========================== -->
-
-    <div class="file">
-
-        <div class="file-header">
-
-            <div class="file-info">
-
-                <span class="icon">🖼</span>
-
-                <div class="file-details">
-
-                    <span class="file-name">
-                        screenshot.png
-                    </span>
-
-                    <small>PNG Image</small>
-
-                </div>
-
-            </div>
-
-
-            <div class="actions">
-
-                <a
-                    class="btn"
-                    href="files/screenshot.png"
-                    target="_blank">
-                    View
-                </a>
-
-                <a
-                    class="btn download"
-                    href="files/screenshot.png"
-                    download="screenshot.png">
-                    Download
-                </a>
-
-            </div>
-
+        <div class="file">
+            <div class="icon">📊</div>
+            <div class="filename">List.xlsx</div>
+            <a class="download" href="List.xlsx" download>DOWNLOAD</a>
         </div>
 
-    </div>
-
-
-    <!-- =========================
-         PDF
-    ========================== -->
-
-    <div class="file">
-
-        <div class="file-header">
-
-            <div class="file-info">
-
-                <span class="icon">📄</span>
-
-                <div class="file-details">
-
-                    <span class="file-name">
-                        notes.pdf
-                    </span>
-
-                    <small>PDF Document</small>
-
-                </div>
-
-            </div>
-
-
-            <div class="actions">
-
-                <a
-                    class="btn"
-                    href="files/notes.pdf"
-                    target="_blank">
-                    View
-                </a>
-
-                <a
-                    class="btn download"
-                    href="files/notes.pdf"
-                    download="notes.pdf">
-                    Download
-                </a>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- =========================
-         WORD DOCUMENT
-    ========================== -->
-
-    <div class="file">
-
-        <div class="file-header">
-
-            <div class="file-info">
-
-                <span class="icon">📝</span>
-
-                <div class="file-details">
-
-                    <span class="file-name">
-                        assignment.docx
-                    </span>
-
-                    <small>Word Document</small>
-
-                </div>
-
-            </div>
-
-
-            <div class="actions">
-
-                <a
-                    class="btn download"
-                    href="files/assignment.docx"
-                    download="assignment.docx">
-                    Download
-                </a>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- =========================
-         ZIP
-    ========================== -->
-
-    <div class="file">
-
-        <div class="file-header">
-
-            <div class="file-info">
-
-                <span class="icon">📦</span>
-
-                <div class="file-details">
-
-                    <span class="file-name">
-                        project.zip
-                    </span>
-
-                    <small>ZIP Archive</small>
-
-                </div>
-
-            </div>
-
-
-            <div class="actions">
-
-                <a
-                    class="btn download"
-                    href="files/project.zip"
-                    download="project.zip">
-                    Download
-                </a>
-
-            </div>
-
+        <div class="file">
+            <div class="icon">📄</div>
+            <div class="filename">Mail Merge.docx</div>
+            <a class="download" href="Mail%20Merge.docx" download>DOWNLOAD</a>
         </div>
 
     </div>
 
 </div>
 
-
-<!-- =========================
-     FOOTER
-========================= -->
-
-<div class="footer">
-
-    <div>
-        <span class="online">●</span>
-        system online — code vault ready
-    </div>
-
-    <div>
-        Created by
-        <strong>Manoj Kumar Hansda</strong>
-    </div>
-
-</div>
-
-
-</div>
-
-
-<script>
-
-/* =====================================================
-   VIEW / HIDE CODE
-===================================================== */
-
-function toggleCode(element) {
-
-    const file = element.closest(".code-file");
-
-    const codeBox =
-        file.querySelector(".code-box");
-
-    const fileName =
-        file.querySelector(".file-name");
-
-    const viewButton =
-        file.querySelector(".actions button");
-
-    const realName =
-        fileName.dataset.filename;
-
-
-    if (codeBox.style.display === "block") {
-
-        codeBox.style.display = "none";
-
-        fileName.innerText =
-            "▶ " + realName;
-
-        viewButton.innerText =
-            "View";
-
-    } else {
-
-        codeBox.style.display =
-            "block";
-
-        fileName.innerText =
-            "▼ " + realName;
-
-        viewButton.innerText =
-            "Hide";
-    }
-}
-
-
-/* =====================================================
-   COPY CODE
-===================================================== */
-
-function copyCode(button) {
-
-    const file =
-        button.closest(".code-file");
-
-    const code =
-        file.querySelector("code")
-        .innerText;
-
-
-    navigator.clipboard
-        .writeText(code)
-        .then(function() {
-
-            button.innerText =
-                "Copied ✓";
-
-            setTimeout(function() {
-
-                button.innerText =
-                    "Copy";
-
-            }, 1500);
-
-        })
-
-        .catch(function() {
-
-            alert("Copy failed!");
-
-        });
-}
-
-
-/* =====================================================
-   DOWNLOAD HTML CODE
-===================================================== */
-
-function downloadCode(button) {
-
-    const file =
-        button.closest(".code-file");
-
-    const fileName =
-        file.querySelector(".file-name")
-        .dataset.filename;
-
-    const code =
-        file.querySelector("code")
-        .innerText;
-
-
-    const blob =
-        new Blob(
-            [code],
-            {
-                type:
-                "text/html;charset=utf-8"
-            }
-        );
-
-
-    const url =
-        URL.createObjectURL(blob);
-
-
-    const link =
-        document.createElement("a");
-
-
-    link.href = url;
-
-    link.download =
-        fileName;
-
-
-    document.body
-        .appendChild(link);
-
-
-    link.click();
-
-
-    link.remove();
-
-
-    URL.revokeObjectURL(url);
-}
-
-
-/* =====================================================
-   SEARCH CODE FILES
-===================================================== */
-
-function searchFiles() {
-
-    const search =
-        document
-        .getElementById("search")
-        .value
-        .toLowerCase()
-        .trim();
-
-
-    const files =
-        document
-        .querySelectorAll(
-            ".code-file"
-        );
-
-
-    let found = false;
-
-
-    files.forEach(function(file) {
-
-        const name =
-            file
-            .querySelector(
-                ".file-name"
-            )
-            .dataset
-            .filename
-            .toLowerCase();
-
-
-        if (name.includes(search)) {
-
-            file.style.display =
-                "block";
-
-            found = true;
-
-        } else {
-
-            file.style.display =
-                "none";
-        }
-
-    });
-
-
-    document
-        .getElementById(
-            "noResult"
-        )
-        .style
-        .display =
-        found ? "none" : "block";
-}
-
-</script>
+<footer>
+    Created by Manoj Kumar Hansda
+</footer>
 
 </body>
 </html>
