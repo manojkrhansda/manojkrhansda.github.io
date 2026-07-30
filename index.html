@@ -1,84 +1,445 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background-color: #f4f4f4;
-            text-align: center;
+<title>Kali Terminal</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        background: #05080c;
+        color: #00ff9c;
+        font-family: Consolas, "Courier New", monospace;
+        min-height: 100vh;
+    }
+
+    /* Top Bar */
+    .topbar {
+        height: 45px;
+        background: #0b1118;
+        border-bottom: 1px solid #00bcd4;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+        color: #d7faff;
+    }
+
+    .logo {
+        color: #00d9ff;
+        font-weight: bold;
+    }
+
+    .status {
+        font-size: 13px;
+        color: #00ff9c;
+    }
+
+    /* Main */
+    .container {
+        width: 90%;
+        max-width: 1000px;
+        margin: 50px auto;
+    }
+
+    .title {
+        text-align: center;
+        margin-bottom: 35px;
+    }
+
+    .title h1 {
+        color: #00d9ff;
+        font-size: 38px;
+        margin-bottom: 5px;
+        text-shadow: 0 0 12px rgba(0, 217, 255, 0.5);
+    }
+
+    .title p {
+        color: #7d929c;
+    }
+
+    /* Terminal */
+    .terminal {
+        background: #080d12;
+        border: 1px solid #1d3a45;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 0 30px rgba(0, 217, 255, 0.12);
+    }
+
+    .terminal-header {
+        background: #101820;
+        height: 42px;
+        display: flex;
+        align-items: center;
+        padding: 0 15px;
+        border-bottom: 1px solid #1d3a45;
+    }
+
+    .buttons {
+        display: flex;
+        gap: 8px;
+    }
+
+    .circle {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+    }
+
+    .red {
+        background: #ff5f56;
+    }
+
+    .yellow {
+        background: #ffbd2e;
+    }
+
+    .green {
+        background: #27c93f;
+    }
+
+    .terminal-name {
+        margin: auto;
+        padding-right: 50px;
+        color: #81939d;
+        font-size: 13px;
+    }
+
+    .terminal-body {
+        padding: 20px;
+        min-height: 380px;
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    .blue {
+        color: #00d9ff;
+    }
+
+    .white {
+        color: #d8e3e8;
+    }
+
+    .gray {
+        color: #65747c;
+    }
+
+    .prompt {
+        color: #00d9ff;
+    }
+
+    .root {
+        color: #ff3b6b;
+    }
+
+    /* Command */
+    .command-line {
+        display: flex;
+        align-items: center;
+    }
+
+    #command {
+        flex: 1;
+        border: none;
+        outline: none;
+        background: transparent;
+        color: #00ff9c;
+        font-family: inherit;
+        font-size: 15px;
+        margin-left: 8px;
+        caret-color: #00ff9c;
+    }
+
+    #output {
+        margin-bottom: 5px;
+    }
+
+    /* Cards */
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+        margin-top: 25px;
+    }
+
+    .card {
+        background: #080d12;
+        border: 1px solid #15333d;
+        padding: 20px;
+        border-radius: 6px;
+        transition: 0.2s;
+    }
+
+    .card:hover {
+        border-color: #00d9ff;
+        transform: translateY(-3px);
+        box-shadow: 0 0 15px rgba(0, 217, 255, 0.15);
+    }
+
+    .card h3 {
+        margin-top: 0;
+        color: #00d9ff;
+    }
+
+    .card p {
+        color: #7f929b;
+        font-size: 14px;
+    }
+
+    footer {
+        text-align: center;
+        color: #44545c;
+        padding: 35px;
+        font-size: 13px;
+    }
+
+    @media (max-width: 700px) {
+        .cards {
+            grid-template-columns: 1fr;
         }
 
-        header {
-            background-color: #333;
-            color: white;
-            padding: 20px;
+        .title h1 {
+            font-size: 28px;
         }
-
-        nav {
-            background-color: #555;
-            padding: 10px;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 15px;
-        }
-
-        main {
-            padding: 40px;
-        }
-
-        button {
-            padding: 10px 20px;
-            cursor: pointer;
-        }
-
-        footer {
-            background-color: #333;
-            color: white;
-            padding: 10px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
+    }
+</style>
 </head>
 
 <body>
 
-    <header>
-        <h1>Welcome to My Website</h1>
-        <p>This is my simple HTML website.</p>
-    </header>
+<div class="topbar">
 
-    <nav>
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-    </nav>
+    <div class="logo">
+        ◈ KALI://TERMINAL
+    </div>
 
-    <main>
-        <h2>Hello!</h2>
-        <p>This website is created using HTML and CSS.</p>
+    <div class="status">
+        ● SYSTEM ONLINE
+    </div>
 
-        <button onclick="showMessage()">Click Me</button>
-    </main>
+</div>
 
-    <footer>
-        <p>&copy; 2026 My Website</p>
-    </footer>
 
-    <script>
-        function showMessage() {
-            alert("Welcome to my website!");
+<div class="container">
+
+    <div class="title">
+        <h1>SECURE TERMINAL</h1>
+        <p>Linux inspired command interface</p>
+    </div>
+
+
+    <div class="terminal">
+
+        <div class="terminal-header">
+
+            <div class="buttons">
+                <div class="circle red"></div>
+                <div class="circle yellow"></div>
+                <div class="circle green"></div>
+            </div>
+
+            <div class="terminal-name">
+                root@kali: ~
+            </div>
+
+        </div>
+
+
+        <div class="terminal-body">
+
+            <div id="output">
+
+                <div class="blue">
+                    Kali GNU/Linux Terminal
+                </div>
+
+                <div class="gray">
+                    --------------------------------------------
+                </div>
+
+                <div class="white">
+                    Welcome to the secure terminal interface.
+                </div>
+
+                <div class="white">
+                    Type <span class="blue">help</span> to see available commands.
+                </div>
+
+                <br>
+
+            </div>
+
+
+            <div class="command-line">
+
+                <span class="root">┌──(root㉿kali)-[~]</span>
+
+            </div>
+
+            <div class="command-line">
+
+                <span class="prompt">└─#</span>
+
+                <input
+                    type="text"
+                    id="command"
+                    autocomplete="off"
+                    autofocus
+                >
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>01 // FILES</h3>
+            <p>Access your local project files and resources.</p>
+        </div>
+
+        <div class="card">
+            <h3>02 // PROJECTS</h3>
+            <p>View HTML, scripts and development projects.</p>
+        </div>
+
+        <div class="card">
+            <h3>03 // ABOUT</h3>
+            <p>Personal terminal-style web interface.</p>
+        </div>
+
+    </div>
+
+</div>
+
+
+<footer>
+    SYSTEM://LOCALHOST • TERMINAL UI
+</footer>
+
+
+<script>
+
+const input = document.getElementById("command");
+const output = document.getElementById("output");
+
+input.addEventListener("keydown", function(event) {
+
+    if (event.key === "Enter") {
+
+        let command = input.value.trim();
+        let lowerCommand = command.toLowerCase();
+
+        output.innerHTML += `
+            <div>
+                <span style="color:#00d9ff;">└─#</span>
+                <span style="color:#00ff9c;"> ${command}</span>
+            </div>
+        `;
+
+        if (lowerCommand === "help") {
+
+            output.innerHTML += `
+                <div class="white">
+                    Available commands:
+                </div>
+
+                <div class="blue">
+                    help &nbsp;&nbsp;&nbsp; Show commands<br>
+                    clear &nbsp;&nbsp; Clear terminal<br>
+                    whoami &nbsp; Show current user<br>
+                    date &nbsp;&nbsp;&nbsp; Show date and time<br>
+                    ls &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Show files<br>
+                    about &nbsp;&nbsp; About this website
+                </div>
+                <br>
+            `;
+
         }
-    </script>
+
+        else if (lowerCommand === "clear") {
+
+            output.innerHTML = "";
+
+        }
+
+        else if (lowerCommand === "whoami") {
+
+            output.innerHTML += `
+                <div class="white">root</div><br>
+            `;
+
+        }
+
+        else if (lowerCommand === "date") {
+
+            output.innerHTML += `
+                <div class="white">
+                    ${new Date()}
+                </div>
+                <br>
+            `;
+
+        }
+
+        else if (lowerCommand === "ls") {
+
+            output.innerHTML += `
+                <div class="blue">
+                    Documents &nbsp;
+                    Projects &nbsp;
+                    Scripts &nbsp;
+                    Downloads
+                </div>
+                <br>
+            `;
+
+        }
+
+        else if (lowerCommand === "about") {
+
+            output.innerHTML += `
+                <div class="white">
+                    Kali Linux inspired terminal website UI.
+                </div>
+                <br>
+            `;
+
+        }
+
+        else if (command !== "") {
+
+            output.innerHTML += `
+                <div style="color:#ff5f56;">
+                    bash: ${command}: command not found
+                </div>
+                <br>
+            `;
+
+        }
+
+        input.value = "";
+
+        window.scrollTo({
+            top: document.body.scrollHeight,
+            behavior: "smooth"
+        });
+
+    }
+
+});
+
+</script>
 
 </body>
 </html>
