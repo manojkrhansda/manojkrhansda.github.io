@@ -1,141 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
 
-<title>Manoj File Library</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
 
-<style>
-    * {
-        box-sizing: border-box;
-    }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+        }
 
-    body {
-        margin: 0;
-        background: #050b12;
-        color: #d7e2ec;
-        font-family: Consolas, monospace;
-    }
+        nav {
+            background-color: #555;
+            padding: 10px;
+        }
 
-    header {
-        background: #08131f;
-        border-bottom: 1px solid #183047;
-        padding: 18px 25px;
-    }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 15px;
+        }
 
-    .logo {
-        color: #00ff9d;
-        font-size: 20px;
-        font-weight: bold;
-    }
+        main {
+            padding: 40px;
+        }
 
-    .sub {
-        color: #71869a;
-        font-size: 12px;
-        margin-top: 5px;
-    }
+        button {
+            padding: 10px 20px;
+            cursor: pointer;
+        }
 
-    .terminal {
-        max-width: 900px;
-        margin: 30px auto;
-        padding: 0 15px;
-    }
-
-    .path {
-        color: #00ff9d;
-        margin-bottom: 15px;
-    }
-
-    .box {
-        background: #09131e;
-        border: 1px solid #1b3043;
-        border-radius: 5px;
-        overflow: hidden;
-    }
-
-    .file {
-        display: flex;
-        align-items: center;
-        padding: 13px 15px;
-        border-bottom: 1px solid #152536;
-    }
-
-    .file:last-child {
-        border-bottom: none;
-    }
-
-    .file:hover {
-        background: #0d1d2b;
-    }
-
-    .icon {
-        width: 40px;
-        font-size: 20px;
-    }
-
-    .filename {
-        flex: 1;
-        font-size: 14px;
-    }
-
-    .download {
-        color: #00ff9d;
-        border: 1px solid #00a866;
-        padding: 6px 12px;
-        border-radius: 3px;
-        text-decoration: none;
-        font-size: 12px;
-    }
-
-    .download:hover {
-        background: #00ff9d;
-        color: #04100b;
-    }
-
-    footer {
-        text-align: center;
-        color: #53687a;
-        font-size: 11px;
-        margin: 30px;
-    }
-</style>
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
 </head>
 
 <body>
 
-<header>
-    <div class="logo">MANOJ://FILE_LIBRARY</div>
-    <div class="sub">Personal File Repository</div>
-</header>
+    <header>
+        <h1>Welcome to My Website</h1>
+        <p>This is my simple HTML website.</p>
+    </header>
 
-<div class="terminal">
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </nav>
 
-    <div class="path">
-        manoj@library:~/files$
-    </div>
+    <main>
+        <h2>Hello!</h2>
+        <p>This website is created using HTML and CSS.</p>
 
-    <div class="box">
+        <button onclick="showMessage()">Click Me</button>
+    </main>
 
-        <div class="file">
-            <div class="icon">📦</div>
-            <div class="filename">setup.zip</div>
-            <a class="download" href="setup.zip" download>DOWNLOAD</a>
-        </div>
+    <footer>
+        <p>&copy; 2026 My Website</p>
+    </footer>
 
-        <div class="file">
-            <div class="icon">📦</div>
-            <div class="filename">all_files.zip</div>
-            <a class="download" href="all_files.zip" download>DOWNLOAD</a>
-        </div>
-
-    </div>
-
-</div>
-
-<footer>
-    Created by Manoj Kumar Hansda
-</footer>
+    <script>
+        function showMessage() {
+            alert("Welcome to my website!");
+        }
+    </script>
 
 </body>
 </html>
