@@ -1,295 +1,238 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manoj Terminal</title>
 
-<title>Kali Terminal</title>
-
-<style>
-    * {
-        box-sizing: border-box;
-    }
-
-    body {
-        margin: 0;
-        background: #05080c;
-        color: #00ff9c;
-        font-family: Consolas, "Courier New", monospace;
-        min-height: 100vh;
-    }
-
-    /* Top Bar */
-    .topbar {
-        height: 45px;
-        background: #0b1118;
-        border-bottom: 1px solid #00bcd4;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 20px;
-        color: #d7faff;
-    }
-
-    .logo {
-        color: #00d9ff;
-        font-weight: bold;
-    }
-
-    .status {
-        font-size: 13px;
-        color: #00ff9c;
-    }
-
-    /* Main */
-    .container {
-        width: 90%;
-        max-width: 1000px;
-        margin: 50px auto;
-    }
-
-    .title {
-        text-align: center;
-        margin-bottom: 35px;
-    }
-
-    .title h1 {
-        color: #00d9ff;
-        font-size: 38px;
-        margin-bottom: 5px;
-        text-shadow: 0 0 12px rgba(0, 217, 255, 0.5);
-    }
-
-    .title p {
-        color: #7d929c;
-    }
-
-    /* Terminal */
-    .terminal {
-        background: #080d12;
-        border: 1px solid #1d3a45;
-        border-radius: 8px;
-        overflow: hidden;
-        box-shadow: 0 0 30px rgba(0, 217, 255, 0.12);
-    }
-
-    .terminal-header {
-        background: #101820;
-        height: 42px;
-        display: flex;
-        align-items: center;
-        padding: 0 15px;
-        border-bottom: 1px solid #1d3a45;
-    }
-
-    .buttons {
-        display: flex;
-        gap: 8px;
-    }
-
-    .circle {
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-    }
-
-    .red {
-        background: #ff5f56;
-    }
-
-    .yellow {
-        background: #ffbd2e;
-    }
-
-    .green {
-        background: #27c93f;
-    }
-
-    .terminal-name {
-        margin: auto;
-        padding-right: 50px;
-        color: #81939d;
-        font-size: 13px;
-    }
-
-    .terminal-body {
-        padding: 20px;
-        min-height: 380px;
-        font-size: 15px;
-        line-height: 1.7;
-    }
-
-    .blue {
-        color: #00d9ff;
-    }
-
-    .white {
-        color: #d8e3e8;
-    }
-
-    .gray {
-        color: #65747c;
-    }
-
-    .prompt {
-        color: #00d9ff;
-    }
-
-    .root {
-        color: #ff3b6b;
-    }
-
-    /* Command */
-    .command-line {
-        display: flex;
-        align-items: center;
-    }
-
-    #command {
-        flex: 1;
-        border: none;
-        outline: none;
-        background: transparent;
-        color: #00ff9c;
-        font-family: inherit;
-        font-size: 15px;
-        margin-left: 8px;
-        caret-color: #00ff9c;
-    }
-
-    #output {
-        margin-bottom: 5px;
-    }
-
-    /* Cards */
-    .cards {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 15px;
-        margin-top: 25px;
-    }
-
-    .card {
-        background: #080d12;
-        border: 1px solid #15333d;
-        padding: 20px;
-        border-radius: 6px;
-        transition: 0.2s;
-    }
-
-    .card:hover {
-        border-color: #00d9ff;
-        transform: translateY(-3px);
-        box-shadow: 0 0 15px rgba(0, 217, 255, 0.15);
-    }
-
-    .card h3 {
-        margin-top: 0;
-        color: #00d9ff;
-    }
-
-    .card p {
-        color: #7f929b;
-        font-size: 14px;
-    }
-
-    footer {
-        text-align: center;
-        color: #44545c;
-        padding: 35px;
-        font-size: 13px;
-    }
-
-    @media (max-width: 700px) {
-        .cards {
-            grid-template-columns: 1fr;
+    <style>
+        * {
+            box-sizing: border-box;
         }
 
-        .title h1 {
-            font-size: 28px;
+        body {
+            margin: 0;
+            background: #050505;
+            color: #00ff88;
+            font-family: "Courier New", monospace;
         }
-    }
-</style>
+
+        /* Top bar */
+        header {
+            background: #0a0a0a;
+            border-bottom: 1px solid #00ff88;
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: #00ff88;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        nav a:hover {
+            color: white;
+        }
+
+        /* Main area */
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 38px;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            color: #777;
+            margin-bottom: 30px;
+        }
+
+        /* Terminal */
+        .terminal {
+            background: #080808;
+            border: 1px solid #222;
+            border-radius: 7px;
+            box-shadow: 0 0 25px rgba(0, 255, 136, 0.12);
+            overflow: hidden;
+        }
+
+        .terminal-bar {
+            background: #151515;
+            padding: 10px 15px;
+            color: #aaa;
+            border-bottom: 1px solid #222;
+        }
+
+        .terminal-body {
+            min-height: 350px;
+            padding: 20px;
+            line-height: 1.7;
+        }
+
+        .prompt {
+            color: #00ff88;
+        }
+
+        .command {
+            color: white;
+        }
+
+        .info {
+            color: #777;
+        }
+
+        /* Input */
+        .input-line {
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            outline: none;
+            color: white;
+            font-family: "Courier New", monospace;
+            font-size: 16px;
+            margin-left: 10px;
+        }
+
+        /* Cards */
+        .tools {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .card {
+            background: #080808;
+            border: 1px solid #222;
+            padding: 20px;
+            transition: 0.2s;
+        }
+
+        .card:hover {
+            border-color: #00ff88;
+            transform: translateY(-3px);
+        }
+
+        .card h3 {
+            margin-top: 0;
+        }
+
+        footer {
+            text-align: center;
+            color: #444;
+            padding: 30px;
+        }
+
+        /* Scanline effect */
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(255,255,255,0.015),
+                rgba(255,255,255,0.015) 1px,
+                transparent 1px,
+                transparent 3px
+            );
+        }
+
+        @media(max-width: 600px) {
+            nav {
+                display: none;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<div class="topbar">
+<header>
+    <div class="logo">[ MANOJ@SYSTEM ]</div>
 
-    <div class="logo">
-        ◈ KALI://TERMINAL
-    </div>
-
-    <div class="status">
-        ● SYSTEM ONLINE
-    </div>
-
-</div>
-
+    <nav>
+        <a href="#">HOME</a>
+        <a href="#">FILES</a>
+        <a href="#">TOOLS</a>
+        <a href="#">ABOUT</a>
+    </nav>
+</header>
 
 <div class="container">
 
-    <div class="title">
-        <h1>SECURE TERMINAL</h1>
-        <p>Linux inspired command interface</p>
+    <h1>MANOJ TERMINAL</h1>
+    <div class="subtitle">
+        Personal Command Center // System Online
     </div>
-
 
     <div class="terminal">
 
-        <div class="terminal-header">
-
-            <div class="buttons">
-                <div class="circle red"></div>
-                <div class="circle yellow"></div>
-                <div class="circle green"></div>
-            </div>
-
-            <div class="terminal-name">
-                root@kali: ~
-            </div>
-
+        <div class="terminal-bar">
+            terminal — manoj@localhost
         </div>
 
+        <div class="terminal-body" id="terminal">
 
-        <div class="terminal-body">
-
-            <div id="output">
-
-                <div class="blue">
-                    Kali GNU/Linux Terminal
-                </div>
-
-                <div class="gray">
-                    --------------------------------------------
-                </div>
-
-                <div class="white">
-                    Welcome to the secure terminal interface.
-                </div>
-
-                <div class="white">
-                    Type <span class="blue">help</span> to see available commands.
-                </div>
-
-                <br>
-
+            <div>
+                <span class="prompt">manoj@localhost:~$</span>
+                <span class="command"> system-status</span>
             </div>
 
-
-            <div class="command-line">
-
-                <span class="root">┌──(root㉿kali)-[~]</span>
-
+            <div class="info">
+                Initializing system...
             </div>
 
-            <div class="command-line">
+            <div>
+                [✓] Network : ONLINE
+            </div>
 
-                <span class="prompt">└─#</span>
+            <div>
+                [✓] Database : CONNECTED
+            </div>
+
+            <div>
+                [✓] Security : ACTIVE
+            </div>
+
+            <br>
+
+            <div class="info">
+                Type <span style="color:white">help</span>
+                to see available commands.
+            </div>
+
+            <div class="input-line">
+
+                <span class="prompt">
+                    manoj@localhost:~$
+                </span>
 
                 <input
+                    id="commandInput"
                     type="text"
-                    id="command"
                     autocomplete="off"
                     autofocus
                 >
@@ -301,143 +244,119 @@
     </div>
 
 
-    <div class="cards">
+    <div class="tools">
 
         <div class="card">
             <h3>01 // FILES</h3>
-            <p>Access your local project files and resources.</p>
+            <p>Access personal files and resources.</p>
         </div>
 
         <div class="card">
-            <h3>02 // PROJECTS</h3>
-            <p>View HTML, scripts and development projects.</p>
+            <h3>02 // SCRIPTS</h3>
+            <p>View saved scripts and commands.</p>
         </div>
 
         <div class="card">
-            <h3>03 // ABOUT</h3>
-            <p>Personal terminal-style web interface.</p>
+            <h3>03 // NOTES</h3>
+            <p>Personal notes and documentation.</p>
+        </div>
+
+        <div class="card">
+            <h3>04 // SYSTEM</h3>
+            <p>System information and settings.</p>
         </div>
 
     </div>
 
 </div>
 
-
 <footer>
-    SYSTEM://LOCALHOST • TERMINAL UI
+    MANOJ SYSTEM // 2026
 </footer>
 
 
 <script>
 
-const input = document.getElementById("command");
-const output = document.getElementById("output");
+const input = document.getElementById("commandInput");
+const terminal = document.getElementById("terminal");
 
 input.addEventListener("keydown", function(event) {
 
-    if (event.key === "Enter") {
+    if(event.key === "Enter") {
 
-        let command = input.value.trim();
-        let lowerCommand = command.toLowerCase();
+        const command = input.value.trim();
 
-        output.innerHTML += `
-            <div>
-                <span style="color:#00d9ff;">└─#</span>
-                <span style="color:#00ff9c;"> ${command}</span>
-            </div>
-        `;
+        const output = document.createElement("div");
 
-        if (lowerCommand === "help") {
+        output.innerHTML =
+        '<span class="prompt">manoj@localhost:~$</span> ' +
+        '<span class="command">' + command + '</span>';
 
-            output.innerHTML += `
-                <div class="white">
-                    Available commands:
-                </div>
+        terminal.insertBefore(output, input.parentElement);
 
-                <div class="blue">
-                    help &nbsp;&nbsp;&nbsp; Show commands<br>
-                    clear &nbsp;&nbsp; Clear terminal<br>
-                    whoami &nbsp; Show current user<br>
-                    date &nbsp;&nbsp;&nbsp; Show date and time<br>
-                    ls &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Show files<br>
-                    about &nbsp;&nbsp; About this website
-                </div>
-                <br>
-            `;
+        if(command === "help") {
+
+            addOutput(`
+                Available commands:<br>
+                help &nbsp;&nbsp;&nbsp; Show commands<br>
+                about &nbsp;&nbsp; About this system<br>
+                clear &nbsp;&nbsp; Clear terminal<br>
+                files &nbsp;&nbsp; Show file section
+            `);
 
         }
 
-        else if (lowerCommand === "clear") {
+        else if(command === "about") {
 
-            output.innerHTML = "";
-
-        }
-
-        else if (lowerCommand === "whoami") {
-
-            output.innerHTML += `
-                <div class="white">root</div><br>
-            `;
+            addOutput(
+                "Personal terminal interface created by Manoj."
+            );
 
         }
 
-        else if (lowerCommand === "date") {
+        else if(command === "files") {
 
-            output.innerHTML += `
-                <div class="white">
-                    ${new Date()}
-                </div>
-                <br>
-            `;
+            addOutput(
+                "Opening file directory..."
+            );
 
         }
 
-        else if (lowerCommand === "ls") {
+        else if(command === "clear") {
 
-            output.innerHTML += `
-                <div class="blue">
-                    Documents &nbsp;
-                    Projects &nbsp;
-                    Scripts &nbsp;
-                    Downloads
-                </div>
-                <br>
-            `;
+            location.reload();
 
         }
 
-        else if (lowerCommand === "about") {
+        else if(command !== "") {
 
-            output.innerHTML += `
-                <div class="white">
-                    Kali Linux inspired terminal website UI.
-                </div>
-                <br>
-            `;
-
-        }
-
-        else if (command !== "") {
-
-            output.innerHTML += `
-                <div style="color:#ff5f56;">
-                    bash: ${command}: command not found
-                </div>
-                <br>
-            `;
+            addOutput(
+                "Command not found: " + command
+            );
 
         }
 
         input.value = "";
 
-        window.scrollTo({
-            top: document.body.scrollHeight,
-            behavior: "smooth"
-        });
-
+        terminal.scrollTop = terminal.scrollHeight;
     }
 
 });
+
+
+function addOutput(text) {
+
+    const div = document.createElement("div");
+
+    div.className = "info";
+
+    div.innerHTML = text;
+
+    terminal.insertBefore(
+        div,
+        input.parentElement
+    );
+}
 
 </script>
 
